@@ -7,8 +7,13 @@ import {
     BoxIcon,
     IconMenu,
     IconMenuClose,
-    SideBar, 
-    Links
+    MenuIcons,
+    SearchIcon,
+    SideBar,
+    CartIcon,
+    Links,
+    Linkss,
+    MenuDesktop
 } from "./NavElements"
 
 export const NavMenu = ({ isOpen, setIsOpen, sizeScreen }) => {
@@ -17,13 +22,40 @@ export const NavMenu = ({ isOpen, setIsOpen, sizeScreen }) => {
             <Nav>
                 <BoxLogo>
                     <Links to="/">
-                        {(sizeScreen < 950 ? <img src={logoIMG} alt="Logomarca Fitness Factory"/> : <img src={logoIMGDesk} alt="Logomarca Fitness Factory"/>)}
+                        {(sizeScreen < 950 ? <img src={logoIMG} alt="Logomarca Fitness Factory" /> : <img src={logoIMGDesk} alt="Logomarca Fitness Factory" />)}
                     </Links>
                 </BoxLogo>
 
-                <BoxIcon onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen ? <IconMenuClose/> : <IconMenu/>}
+                <BoxIcon>
+                    {isOpen ? <IconMenuClose onClick={() => setIsOpen(!isOpen)} /> : <IconMenu onClick={() => setIsOpen(!isOpen)} />}
                 </BoxIcon>
+
+                <MenuDesktop>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Linkss to="/beneficios">Nossos Benefícios</Linkss>
+                            </li>
+                            <li>
+                                <Linkss to="/taxas">Taxas</Linkss>
+                            </li>
+                            <li>
+                                <Linkss to="/galeria">Galeria</Linkss>
+                            </li>
+                            <li>
+                                <Linkss to="/noticias">Notícias e Novidades</Linkss>
+                            </li>
+                            <li>
+                                <Linkss to="/contato">Contato</Linkss>
+                            </li>
+                        </ul>
+                    </nav>
+                </MenuDesktop>
+
+                <MenuIcons>
+                    <SearchIcon />
+                    <CartIcon />
+                </MenuIcons>
             </Nav>
 
             <SideBar isOpen={isOpen}>
@@ -45,7 +77,6 @@ export const NavMenu = ({ isOpen, setIsOpen, sizeScreen }) => {
                             <Links to="/contato">Contato</Links>
                         </li>
                     </ul>
-
                 </nav>
             </SideBar>
 
